@@ -1,0 +1,13 @@
+footer {
+  background-color: var(--footer-color);
+}
+.footer {
+  width: 320px;
+  margin: 0 auto;
+  padding: 13px;
+}
+.footer__contacts {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 100;
+}
