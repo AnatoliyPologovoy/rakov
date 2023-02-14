@@ -1,0 +1,23 @@
+header {
+  width: 320px;
+  margin: 0 auto;
+}
+.header {
+  width: 300px;
+  margin: 0 auto;
+  padding: 23px 10px 23px 10px;
+  background-color: var(--main-color-green);
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+.header__text {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  color: white;
+}
+.header__text-name {
+  color: var(--dark-gray);
+}

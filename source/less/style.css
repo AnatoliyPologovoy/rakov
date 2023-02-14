@@ -1,5 +1,39 @@
+.text-content {
+  font-size: 14px;
+}
+:root {
+  --footer-color: #243246;
+  --main-color-green: #65C466;
+  --dark-gray: #414141;
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 100;
+  src: url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 body {
+  margin: 0;
+  padding-top: 10px;
   background-color: cornsilk;
+  font-family: "Roboto", "Arial", sans-serif;
 }
 .visually-hidden {
   position: absolute;
@@ -12,6 +46,52 @@ body {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+main {
+  width: 320px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+header {
+  width: 320px;
+  margin: 0 auto;
+}
+.header {
+  width: 300px;
+  margin: 0 auto;
+  padding: 23px 10px 23px 10px;
+  background-color: var(--main-color-green);
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+.header__text {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  color: white;
+}
+.header__text-name {
+  color: var(--dark-gray);
+}
+.promo__slogan {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: var(--main-color-green);
+  margin: 14px 0;
+}
+.promo {
+  margin-bottom: 30px;
+}
+.service__title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  color: white;
+  color: var(--main-color-green);
 }
 .carousel {
   width: 284px;
@@ -104,4 +184,17 @@ body {
   width: 280px;
   margin: 0 10px;
   font-size: 250px;
+}
+footer {
+  background-color: var(--footer-color);
+}
+.footer {
+  width: 320px;
+  margin: 0 auto;
+  padding: 13px;
+}
+.footer__contacts {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 100;
 }
