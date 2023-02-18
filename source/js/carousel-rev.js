@@ -87,4 +87,5 @@ const carousel =
 
 }
 
-carousel(windowCarousel, listCarousel, buttonCarouselLeft, buttonCarouselRight, 290, 3);
+carousel(carouselView, carouselList, carouselButtonRight, carouselButtonLeft, 230, 8);
+carousel(windowCarousel, listCarousel, buttonCarouselRight, buttonCarouselLeft, 290, 3);
