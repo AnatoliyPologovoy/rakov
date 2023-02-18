@@ -28,15 +28,42 @@
 .list-cards__item {
   box-sizing: border-box;
   width: 220px;
+  height: 295px;
   margin-right: 10px;
-  font-size: 250px;
   border: #243246 0.5px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .list-cards__img {
   display: block;
+  margin-top: 20px;
   object-fit: cover;
   border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  box-shadow: 0 0 0 5px white, 0 0 0 10px var(--main-color-green);
+}
+
+.list-cards__title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--main-color-green);
+  margin-bottom: 3px;
+}
+
+.list-cards__text {
+  margin: 3px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--dark-gray);
+  font-weight: 600;
+  width: 80%;
+}
+
+.list-cards__item-current {
+  background-color: #65c466;
 }
 
 
