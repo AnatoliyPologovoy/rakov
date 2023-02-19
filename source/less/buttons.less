@@ -1,0 +1,31 @@
+//----------buttons for carousel
+
+.carousel__button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background-color: var(--main-color-green);
+  cursor: pointer;
+
+  &-left {
+    justify-self: end;
+  }
+
+  &-right svg{
+    transform: rotate(180deg);
+  }
+
+  &:hover {
+    box-shadow: 0 1px 1px 0  #cfcfcf, 0 2px 5px 0  #cfcfcf;
+  }
+
+  &:active {
+    background-color: darken(@main-green, 10%) ;
+  }
+}
+
+.carousel-rev__button-right svg{
+  transform: rotate(180deg);
+}

@@ -18,7 +18,7 @@ let carouselReviewButtonLeft = document.querySelector('.carousel-rev__button-lef
 let carouselReviewButtonRight = document.querySelector('.carousel-rev__button-right');
 
 let markersFillReview = document.querySelector('.markers__fill-rev');
-let markersFillReviewWidth = 50;
+let markersFillReviewWidth = 53;
 
 const carousel =
   (windowCarousel, element, buttonCarouselLeft, buttonCarouselRight, widthItem, quantityItem, markersFill, markersFillWidth, startActiveItem = 0) => {
@@ -167,6 +167,6 @@ const carousel =
 
 
 carousel(carouselView, carouselList, carouselServiceButtonLeft, carouselServiceButtonRight, 230, 8, markersFillService, markersFillServiceWidth, startActiveItem);
-carousel(windowCarousel, listCarousel,carouselReviewButtonLeft, carouselReviewButtonRight, 290, 4,markersFillReview, markersFillReviewWidth, startActiveItem);
+carousel(windowCarousel, listCarousel,carouselReviewButtonLeft, carouselReviewButtonRight, 310, 4,markersFillReview, markersFillReviewWidth, startActiveItem);
 
 

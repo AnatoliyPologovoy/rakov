@@ -1,8 +1,13 @@
 .carousel {
-  //width: 284px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: repeat(3, auto);
+  column-gap: 30px;
 }
 
 .carousel__view {
+  grid-column-start: 1;
+  grid-column-end: 3;
   margin: 0 auto;
   width: 220px;
   height: 295px;
@@ -63,15 +68,18 @@
   width: 85%;
 }
 
+//----animation img in items
 .list-cards__item-current .list-cards__img{
   animation-name: img-rotating;
   animation-duration: 800ms;
   animation-delay: 200ms;
   animation-timing-function: ease-out;
-
 }
 
+//-----markers it is same for all carousel
 .markers {
+  grid-column-start: 1;
+  grid-column-end: 3;
   width: 210px;
   margin: 20px auto;
 }
@@ -88,15 +96,7 @@
   display: flex;
   justify-content: space-between;
 }
-
-.markers__item {
-  width: 50px;
-  height: 4px;
-  border-radius: 10px;
-  box-shadow: 0 0 0 3.5px var(--background-page);
-  z-index: 2;
-}
-
+//--- individual item styles for service
 .markers__item-service {
   width: 23px;
   height: 4px;
@@ -107,16 +107,6 @@
 
 .markers__fill-service {
   width: 24px;
-  height: 5px;
-  position: absolute;
-  left: 0px;
-  top: -0.5px;
-  background-color: var(--main-color-green);
-  transition: all 1s;
-  border-radius: 10px;
-}
-.markers__fill {
-  width: 54px;
   height: 5px;
   position: absolute;
   left: 0px;

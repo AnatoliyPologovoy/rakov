@@ -1,12 +1,17 @@
 .carousel-rev {
-  width: 284px;
+  width: auto;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: repeat(3, auto);
+  column-gap: 30px;
 }
 
 .carousel-rev__view {
-  width: 280px;
-  height: 350px;
-  border: 1px solid grey;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: auto;
+  height: 167px;
   border-radius: 8.18569px;
   box-shadow: 0px 0px 24.5571px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -18,7 +23,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  width: calc(290*4px);
+  width: calc(310*4px);
   transition: all 1s;
   //transform: translateX(-290px);
   position: absolute;
@@ -27,7 +32,26 @@
 
 .carousel-rev__item {
   box-sizing: border-box;
-  width: 280px;
-  margin: 0 10px;
-  font-size: 250px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.markers__item {
+  width: 49px;
+  height: 4px;
+  border-radius: 10px;
+  box-shadow: 0 0 0 3.5px var(--background-page);
+  z-index: 2;
+}
+
+.markers__fill {
+  .markers__fill-service();
+  width: 53px;
+/*  height: 5px;
+  position: absolute;
+  left: 0px;
+  top: -0.5px;
+  background-color: var(--main-color-green);
+  transition: all 1s;
+  border-radius: 10px;*/
 }
