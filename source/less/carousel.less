@@ -8,7 +8,7 @@
   height: 295px;
   border-radius: 8.18569px;
   box-shadow: 0px 0px 24.5571px rgba(0, 0, 0, 0.2);
-  //overflow: hidden;
+  overflow: hidden;
   position: relative;
   display: flex;
 }
@@ -30,7 +30,6 @@
   width: 220px;
   height: 295px;
   margin-right: 10px;
-  border: #243246 0.5px solid;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,8 +48,10 @@
 .list-cards__title {
   font-size: 18px;
   font-weight: bold;
+  text-align: center;
   color: var(--main-color-green);
   margin-bottom: 3px;
+  width: 80%;
 }
 
 .list-cards__text {
@@ -59,16 +60,19 @@
   font-size: 13px;
   color: var(--dark-gray);
   font-weight: 600;
-  width: 80%;
+  width: 85%;
 }
 
-.list-cards__item-current {
-  background-color: #65c466;
-}
+.list-cards__item-current .list-cards__img{
+  animation-name: img-rotating;
+  animation-duration: 800ms;
+  animation-delay: 200ms;
+  animation-timing-function: ease-out;
 
+}
 
 .markers {
-  width: 270px;
+  width: 210px;
   margin: 20px auto;
 }
 
@@ -80,7 +84,7 @@
   height: 5px;
   overflow: hidden;
   position: relative;
-  background-color: #E8E2D5;
+  background-color: var(--background-markers);
   display: flex;
   justify-content: space-between;
 }
@@ -89,17 +93,35 @@
   width: 50px;
   height: 4px;
   border-radius: 10px;
-  box-shadow: 0 0 0 3.5px cornsilk;
+  box-shadow: 0 0 0 3.5px var(--background-page);
   z-index: 2;
 }
 
+.markers__item-service {
+  width: 23px;
+  height: 4px;
+  border-radius: 7px;
+  box-shadow: 0 0 0 3.3px var(--background-page);
+  z-index: 2;
+}
+
+.markers__fill-service {
+  width: 24px;
+  height: 5px;
+  position: absolute;
+  left: 0px;
+  top: -0.5px;
+  background-color: var(--main-color-green);
+  transition: all 1s;
+  border-radius: 10px;
+}
 .markers__fill {
   width: 54px;
   height: 5px;
   position: absolute;
   left: 0px;
   top: -0.5px;
-  background-color: #65C466;
+  background-color: var(--main-color-green);
   transition: all 1s;
   border-radius: 10px;
 }

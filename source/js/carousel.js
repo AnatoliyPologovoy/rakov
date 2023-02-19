@@ -1,8 +1,4 @@
-let carouselList = document.querySelector('.carousel__list-cards');
-let carouselView = document.querySelector('.carousel__view');
 
-let carouselButtonLeft = document.querySelector('.carousel__button-left');
-let carouselButtonRight = document.querySelector('.carousel__button-right');
 /*
 let carouselShift = 0;
 let carouselShiftClone = 290; // width item (width + margins)

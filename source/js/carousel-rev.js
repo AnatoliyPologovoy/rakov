@@ -1,11 +1,27 @@
+//carousel list cards
+let carouselList = document.querySelector('.carousel__list-cards');
+let carouselView = document.querySelector('.carousel__view');
+
+let carouselServiceButtonLeft = document.querySelector('.carousel__button-left');
+let carouselServiceButtonRight = document.querySelector('.carousel__button-right');
+
+let markersFillService = document.querySelector('.markers__fill-service');
+let markersFillServiceWidth = 26.6;
+
+let startActiveItem = 0;
+
+//carousel reviews
 let windowCarousel = document.querySelector('.carousel-rev__view');
 let listCarousel = document.querySelector('.carousel-rev__list');
 
-let buttonCarouselLeft = document.querySelector('.carousel-rev__button-left');
-let buttonCarouselRight = document.querySelector('.carousel-rev__button-right');
+let carouselReviewButtonLeft = document.querySelector('.carousel-rev__button-left');
+let carouselReviewButtonRight = document.querySelector('.carousel-rev__button-right');
+
+let markersFillReview = document.querySelector('.markers__fill-rev');
+let markersFillReviewWidth = 50;
 
 const carousel =
-  (windowCarousel, element, buttonCarouselLeft, buttonCarouselRight, widthItem, quantityItem) => {
+  (windowCarousel, element, buttonCarouselLeft, buttonCarouselRight, widthItem, quantityItem, markersFill, markersFillWidth, startActiveItem = 0) => {
 
     let shift = 0;
     let count = 0;
@@ -13,7 +29,7 @@ const carousel =
     let positionCloneElementLeft;
     let positionCloneElementRight;
     //for set active item
-    let countActive = 0;
+    let countActive = startActiveItem;
     let activeList = element;
     let notActiveList;
 
@@ -30,6 +46,7 @@ const carousel =
 
       activeList.children[countActive].classList.add('list-cards__item-current');
     }
+
     setActiveItem(activeList);
 
     const createCloneElementLeft = (shiftingAdditional = 0) => {
@@ -80,7 +97,7 @@ const carousel =
       setActiveItem(activeList);
 
       count++;
-      console.log('count: ' + count + '. countActive: ' + countActive);
+      //console.log('count: ' + count + '. countActive: ' + countActive);
     }
     const shiftingRight = () => {
       shift += widthItem;
@@ -111,17 +128,45 @@ const carousel =
 
 
       count--;
-      console.log('count: ' + count + '. countActive: ' + countActive);
+      //console.log('count: ' + count + '. countActive: ' + countActive);
     }
 
-    buttonCarouselLeft.addEventListener('click', () => {
-      shiftingLeft();
-    })
+    //shifting markers
+    let markersCount = 0;
+    let markersShift = 0;
+
+    const shiftingMarkersRight = () => {
+      if (markersCount === quantityItem - 1) {
+        markersShift = 0 - markersFillWidth;
+        markersCount = 0 - 1;
+      }
+      markersShift += markersFillWidth;
+      markersFill.style.left = markersShift + 'px';
+      markersCount++
+
+    }
+    const shiftingMarkersLeft = () => {
+      if (markersCount === 0) {
+        markersShift = (quantityItem) * markersFillWidth;
+        markersCount = quantityItem;
+      }
+      markersShift -= markersFillWidth;
+      markersFill.style.left = markersShift + 'px';
+      markersCount--
+    }
+
     buttonCarouselRight.addEventListener('click', () => {
+      shiftingLeft();
+      shiftingMarkersRight();
+    })
+    buttonCarouselLeft.addEventListener('click', () => {
       shiftingRight();
+      shiftingMarkersLeft();
     })
   }
 
 
-carousel(carouselView, carouselList, carouselButtonRight, carouselButtonLeft, 230, 8);
-carousel(windowCarousel, listCarousel, buttonCarouselRight, buttonCarouselLeft, 290, 4);
+carousel(carouselView, carouselList, carouselServiceButtonLeft, carouselServiceButtonRight, 230, 8, markersFillService, markersFillServiceWidth, startActiveItem);
+carousel(windowCarousel, listCarousel,carouselReviewButtonLeft, carouselReviewButtonRight, 290, 4,markersFillReview, markersFillReviewWidth, startActiveItem);
+
+
