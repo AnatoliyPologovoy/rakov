@@ -5,9 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Адвокат Владимир Раков</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&family=Roboto:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
   <link href="css/styles.min.css" rel="stylesheet">
 </head>
 <body>
+  <svg style="display: none" width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="star">
+      <path d="M6.24459 0L7.64659 4.31491H12.1836L8.51307 6.98167L9.91507 11.2966L6.24459 8.62981L2.57411 11.2966L3.97611 6.98167L0.305632 4.31491H4.84259L6.24459 0Z" fill="#F2DF33"/>
+    </symbol>
+  </svg>
   <header>
     <div class="header">
       <p class="header__text">Адвокат&nbsp<spam class="header__text-name">Владимир Раков</spam></p>
@@ -160,10 +170,87 @@
       <div class="reviews__carousel carousel-rev">
         <div class="carousel-rev__view">
           <ul class="carousel-rev__list">
-            <li class="carousel-rev__item">1</li>
-            <li class="carousel-rev__item">2</li>
-            <li class="carousel-rev__item">3</li>
-            <li class="carousel-rev__item">4</li>
+            <li class="carousel-rev__item item-rev">
+              <div class="item__rating">
+                <svg width="100" height="15">
+                  <use  xlink:href="#star"></use>
+                  <use  xlink:href="#star" x="15"></use>
+                  <use  xlink:href="#star" x="30"></use>
+                  <use  xlink:href="#star" x="45"></use>
+                  <use  xlink:href="#star" x="60"></use>
+                </svg>
+              </div>
+              <p class="item__text-rev">
+                В результате действий Владимира удалось взыскать
+                задолженость в размере 7 045 515 рублей.
+              </p>
+              <div class="item__author">
+                <img src="img/avatar-1.png" alt="Портрет Андрей" width="37" height="37" class="item__author-avatar">
+                <p class="item__author-name">Андрей С. Д.</p>
+                <p class="item__author-company">ООО "Энергон"</p>
+              </div>
+            </li>
+            <li class="carousel-rev__item item-rev">
+              <div class="item__rating">
+                <svg width="100" height="15">
+                  <use  xlink:href="#star"></use>
+                  <use  xlink:href="#star" x="15"></use>
+                  <use  xlink:href="#star" x="30"></use>
+                  <use  xlink:href="#star" x="45"></use>
+                  <use  xlink:href="#star" x="60"></use>
+                </svg>
+              </div>
+              <p class="item__text-rev">
+                Выражаю благодарность Владимиру за оказанные услуги
+                по подготовке пакета документов в Арбитражный суд
+                и сопровождению процесса.
+              </p>
+              <div class="item__author">
+                <img src="img/avatar-2.jpg" alt="Портрет Татьяны" width="37" height="37" class="item__author-avatar">
+                <p class="item__author-name">Татьяна Н. М.</p>
+                <p class="item__author-company">ИП Макарова</p>
+              </div>
+            </li>
+            <li class="carousel-rev__item item-rev">
+              <div class="item__rating">
+                <svg width="100" height="15">
+                  <use  xlink:href="#star"></use>
+                  <use  xlink:href="#star" x="15"></use>
+                  <use  xlink:href="#star" x="30"></use>
+                  <use  xlink:href="#star" x="45"></use>
+                  <use  xlink:href="#star" x="60"></use>
+                </svg>
+              </div>
+              <p class="item__text-rev">
+                Благодаря профессионализму Владимира,
+                иск удовлетворён в полном объёме!
+              </p>
+              <div class="item__author">
+                <img src="img/avatar-3.png" alt="Портрет Виктора" width="37" height="37" class="item__author-avatar">
+                <p class="item__author-name">Виктор И. Г.</p>
+                <p class="item__author-company"></p>
+              </div>
+            </li>
+            <li class="carousel-rev__item item-rev">
+              <div class="item__rating">
+                <svg width="100" height="15">
+                  <use  xlink:href="#star"></use>
+                  <use  xlink:href="#star" x="15"></use>
+                  <use  xlink:href="#star" x="30"></use>
+                  <use  xlink:href="#star" x="45"></use>
+                  <use  xlink:href="#star" x="60"></use>
+                </svg>
+              </div>
+              <p class="item__text-rev">
+                По рекомендации обратился к Владимиру,
+                который помог разрешить проблему еще на досудебном уровне.
+              </p>
+              <div class="item__author">
+                <img src="img/avatar-4.jpg" alt="Портрет Сергея" width="37" height="37" class="item__author-avatar">
+                <p class="item__author-name">Сергей В. С.</p>
+                <p class="item__author-company">ООО "Тандем"</p>
+              </div>
+            </li>
           </ul>
         </div>
         <div class="carousel__markers markers">
