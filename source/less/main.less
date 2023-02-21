@@ -10,6 +10,7 @@
 
 @main-green: #65C466;
 @text-review: #696969;
+@tablet-size: 768px;
 
 @font-face {
   font-family: "Roboto";
@@ -62,4 +63,11 @@ main {
   padding: 0 10px;
 }
 
+@media (min-width: @tablet-size) {
+  main {
+    width: 768px;
+    padding: 0 15px;
+  }
+
+}
 
