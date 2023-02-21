@@ -12,4 +12,31 @@ footer {
   font-size: 14px;
   font-style: italic;
   font-weight: 100;
+  a {
+    text-decoration: none;
+    margin-left: 14px;
+    color: var(--footer-gray);
+  }
+}
+
+.footer__tel, .footer__email {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer__tel-number, .footer__email-link {
+  order: 2;
+
+  &:hover {
+    color: var(--background-page);
+  }
+}
+
+.footer__tel-number:hover + svg {
+  fill: white;
+}
+
+.footer__email-link:hover + svg {
+  fill: white;
 }

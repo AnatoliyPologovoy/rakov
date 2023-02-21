@@ -161,10 +161,10 @@
       <input type="email" name="email" placeholder="Ваш email" class="form-ask__email">
       <textarea name="question" rows="6" placeholder="Введите Ваш вопрос..." class="form-ask__question"></textarea>
       <div class="form-ask__wrapper">
-        <input type="checkbox" class="form-ask__checkbox" checked>
-        <p class="form-ask__notice">
+        <input id="notice" type="checkbox" class="visually-hidden form-ask__checkbox" name="agree" checked>
+        <label class="form-ask__notice" for="notice">
           Нажимая кнопку “Отправить” вы соглашаетесь с политикой конфидециальности
-        </p>
+        </label>
         <input type="submit" class="form-ask__submit" value="Отправить">
       </div>
     </form>
@@ -283,17 +283,17 @@
       <h1 class="footer__title visually-hidden">Цены и контакты</h1>
       <div class="footer__contacts">
         <div class="footer__tel">
-          <svg class="footer__tel-pic" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <a href="tel: +79102101977" class="footer__tel-number">+ 7(910)210-19-77</a>
+          <svg class="footer__tel-pic" width="12" height="12" viewBox="0 0 12 12" fill="#959AA6" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.0371 7.87663C10.3024 7.87663 9.58106 7.76172 8.89747 7.53581C8.5625 7.42156 8.15072
             7.52638 7.94628 7.73634L6.597 8.75491C5.03222 7.91963 4.06834 6.95606 3.24447 5.40303L4.23306
             4.08891C4.48991 3.83241 4.58203 3.45772 4.47166 3.10616C4.24478 2.41897 4.12953 1.69794 4.12953
             0.962937C4.12956 0.431969 3.69759 0 3.16666 0H0.962906C0.431969 0 0 0.431969 0 0.962906C0
             7.04884 4.95119 12 11.0371 12C11.5681 12 12 11.568 12 11.0371V8.8395C12 8.30859 11.568 7.87663
-            11.0371 7.87663Z" fill="#959AA6"/>
+            11.0371 7.87663Z" />
           </svg>
-          <a href="tel: +79102101977" class="footer__tel-number">+ 7(910)210-19-77</a>
         </div>
-        <div class="footer__social">
+        <div class="footer__social visually-hidden">
           <svg class="footer__youtube" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.9896 0C4.9208 0 0 4.9208 0 10.9896C0 17.0576 4.9208 21.9792 10.9896 21.9792C17.0576 21.9792
              21.9792 17.0576 21.9792 10.9896C21.9792 4.9208 17.0576 0 10.9896 0ZM17.856 11.0008C17.856 11.0008 17.856
@@ -347,17 +347,17 @@
           </svg>
         </div>
         <div class="footer__email">
-          <svg class="footer__email-pic" width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.48438 4.66595L12.7996 7.39394V1.82275L8.48438 4.66595Z" fill="#959AA6"/>
+          <a href="email: legal-view@mail.ru" class="footer__email-link">legal-view@mail.ru</a>
+          <svg class="footer__email-pic" width="13" height="9" viewBox="0 0 13 9" fill="#959AA6" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.48438 4.66595L12.7996 7.39394V1.82275L8.48438 4.66595Z"/>
             <path d="M11.9994 0.200195H0.799436C0.400237 0.200195 0.0834374 0.497795
             0.0234375 0.880994L6.39943 5.08179L12.7754 0.880994C12.7154 0.497795 12.3986
-            0.200195 11.9994 0.200195Z" fill="#959AA6"/>
+            0.200195 11.9994 0.200195Z"/>
             <path d="M7.75129 5.14899L6.61929 5.89459C6.55209 5.93859 6.47609 5.96019 6.39929
             5.96019C6.32249 5.96019 6.24649 5.93859 6.17929 5.89459L5.04729 5.14819L0.0249023
             8.32499C0.0865022 8.70499 0.401702 9.00019 0.799301 9.00019H11.9993C12.3969 9.00019
-            12.7121 8.70499 12.7737 8.32499L7.75129 5.14899Z" fill="#959AA6"/>
+            12.7121 8.70499 12.7737 8.32499L7.75129 5.14899Z"/>
           </svg>
-          <a href="email: legal-view@mail.ru" class="footer__email-link">legal-view@mail.ru</a>
         </div>
       </div>
       <div class="footer__copyright">
