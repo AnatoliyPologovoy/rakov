@@ -11,11 +11,19 @@
   margin: 0 auto;
   width: 220px;
   height: 295px;
-  border-radius: 8.18569px;
-  box-shadow: 0px 0px 24.5571px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   position: relative;
   display: flex;
+
+  @media (min-width: @tablet-size) {
+    width: 690px;
+    height: 350px;
+    box-shadow: none;
+    align-items: end;
+    outline: 1px solid palevioletred;
+  }
 }
 
 .list-cards {
@@ -28,6 +36,10 @@
   //transform: translateX(-290px);
   position: absolute;
   left: 0;
+
+  @media (min-width: @tablet-size) {
+    //left: 5px;     нужно реализовать общий сдвиг, чтобы карточки не касались границ окна карусели
+  }
 }
 
 .list-cards__item {
@@ -38,6 +50,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: @tablet-size) {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+  }
 }
 
 .list-cards__img {

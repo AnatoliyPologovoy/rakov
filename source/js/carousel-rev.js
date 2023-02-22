@@ -1,3 +1,10 @@
+let widthWindow = document.querySelector('body').offsetWidth;
+
+window.addEventListener('resize', () => {
+  window.location.reload();
+  widthWindow = document.querySelector('body').offsetWidth;
+})
+
 //carousel list cards
 let carouselList = document.querySelector('.carousel__list-cards');
 let carouselView = document.querySelector('.carousel__view');
@@ -7,8 +14,13 @@ let carouselServiceButtonRight = document.querySelector('.carousel__button-right
 
 let markersFillService = document.querySelector('.markers__fill-service');
 let markersFillServiceWidth = 26.6;
-
+let widthItemService = 230; //width item + margin
 let startActiveItem = 0;
+
+if (widthWindow > 767) {
+  startActiveItem = 1;
+}
+
 
 //carousel reviews
 let windowCarousel = document.querySelector('.carousel-rev__view');
@@ -20,9 +32,9 @@ let carouselReviewButtonRight = document.querySelector('.carousel-rev__button-ri
 let markersFillReview = document.querySelector('.markers__fill-rev');
 let markersFillReviewWidth = 53;
 
-const carousel =
+const createCarousel =
   (windowCarousel, element, buttonCarouselLeft, buttonCarouselRight, widthItem, quantityItem, markersFill, markersFillWidth, startActiveItem = 0) => {
-
+    //let testVar = 5;
     let shift = 0;
     let count = 0;
     let cloneElement;
@@ -58,8 +70,8 @@ const carousel =
     }
     const createCloneElementRight = () => {
       cloneElement = element.cloneNode(true);
-      positionCloneElementRight = widthItem + widthItem;
-      cloneElement.style.left = positionCloneElementRight + 'px';
+      positionCloneElementRight = widthItem * 3;
+      cloneElement.style.left = positionCloneElementRight +'px';
       windowCarousel.appendChild(cloneElement);
       return cloneElement;
     }
@@ -75,7 +87,7 @@ const carousel =
         cloneElementLeft.style.left = positionCloneElementLeft + 'px';
       }
 
-      if (count === quantityItem - 3) {
+      if (count === quantityItem - 4) {
         cloneElementLeft.remove();
         cloneElementLeft = element;
         element = createCloneElementRight();
@@ -83,8 +95,8 @@ const carousel =
 
         cloneElementLeft.classList.add('clone');
         positionCloneElementLeft = shift;
-        shift = widthItem + widthItem;
-        count = -3;
+        shift = widthItem * 3 ;
+        count = -4;
       }
 
       //counting active element
@@ -163,10 +175,28 @@ const carousel =
       shiftingRight();
       shiftingMarkersLeft();
     })
+    console.log('carousel created')
   }
 
 
-carousel(carouselView, carouselList, carouselServiceButtonLeft, carouselServiceButtonRight, 230, 8, markersFillService, markersFillServiceWidth, startActiveItem);
-carousel(windowCarousel, listCarousel,carouselReviewButtonLeft, carouselReviewButtonRight, 310, 4,markersFillReview, markersFillReviewWidth, startActiveItem);
-
+createCarousel(  //carousel service
+  carouselView,
+  carouselList,
+  carouselServiceButtonLeft,
+  carouselServiceButtonRight,
+  widthItemService,
+  8,
+  markersFillService,
+  markersFillServiceWidth,
+  startActiveItem);
+createCarousel( //carousel reviews
+  windowCarousel,
+  listCarousel,
+  carouselReviewButtonLeft,
+  carouselReviewButtonRight,
+  310,
+  4,
+  markersFillReview,
+  markersFillReviewWidth,
+  startActiveItem);
 

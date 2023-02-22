@@ -4,12 +4,20 @@
   margin: 0 auto;
   display: block;
   text-align: center;
+
+  @media (min-width: @tablet-size) {
+      font-size: 26px;
+  }
 }
 
 .text-content {
   font-size: 14px;
   color: var(--dark-gray);
   margin: 10px 0;
+
+  @media (min-width: @tablet-size) {
+    font-size: 16px;
+  }
 }
 
 @keyframes img-rotating {
@@ -17,3 +25,4 @@
     transform: rotate(-7deg);
   }
 }
+
