@@ -15,10 +15,12 @@ let carouselServiceButtonRight = document.querySelector('.carousel__button-right
 let markersFillService = document.querySelector('.markers__fill-service');
 let markersFillServiceWidth = 26.6;
 let widthItemService = 230; //width item + margin
-let startActiveItem = 0;
 
+let startActiveItem = 0;
+let additionalShift = 0;
 if (widthWindow > 767) {
   startActiveItem = 1;
+  additionalShift = 0;
 }
 
 
@@ -33,9 +35,19 @@ let markersFillReview = document.querySelector('.markers__fill-rev');
 let markersFillReviewWidth = 53;
 
 const createCarousel =
-  (windowCarousel, element, buttonCarouselLeft, buttonCarouselRight, widthItem, quantityItem, markersFill, markersFillWidth, startActiveItem = 0) => {
-    //let testVar = 5;
-    let shift = 0;
+  (windowCarousel, //главное окно просмотра, внутри генерируемые списки
+   element, //список с элементами
+   buttonCarouselLeft, // кнопка со срелкой влево но смещяет список вправо
+   buttonCarouselRight, // кнопка со срелкой вправо но смещяет список влево
+   widthItem, // ширина элемента в списке с учетом маржинов
+   quantityItem, // количество элементов в списке
+   markersFill, // элемент маркера
+   markersFillWidth, //ширина маркера
+   startActiveItem = 0, //активный элемент списка
+   additionalShift = 0 // дополнительное смещение, равное стартовому значению left списка
+  ) => {
+
+    let shift = 0 + additionalShift;
     let count = 0;
     let cloneElement;
     let positionCloneElementLeft;
@@ -63,14 +75,14 @@ const createCarousel =
 
     const createCloneElementLeft = (shiftingAdditional = 0) => {
       cloneElement = element.cloneNode(true);
-      positionCloneElementLeft = -widthItem * quantityItem - shiftingAdditional;
+      positionCloneElementLeft = -widthItem * quantityItem - shiftingAdditional + additionalShift;
       cloneElement.style.left = positionCloneElementLeft + 'px';
       windowCarousel.appendChild(cloneElement);
       return cloneElement;
     }
     const createCloneElementRight = () => {
       cloneElement = element.cloneNode(true);
-      positionCloneElementRight = widthItem * 3;
+      positionCloneElementRight = widthItem * 3 + additionalShift;
       cloneElement.style.left = positionCloneElementRight +'px';
       windowCarousel.appendChild(cloneElement);
       return cloneElement;
@@ -95,7 +107,7 @@ const createCarousel =
 
         cloneElementLeft.classList.add('clone');
         positionCloneElementLeft = shift;
-        shift = widthItem * 3 ;
+        shift = widthItem * 3 + additionalShift;
         count = -4;
       }
 
@@ -188,7 +200,8 @@ createCarousel(  //carousel service
   8,
   markersFillService,
   markersFillServiceWidth,
-  startActiveItem);
+  startActiveItem,
+  additionalShift);
 createCarousel( //carousel reviews
   windowCarousel,
   listCarousel,

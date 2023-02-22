@@ -22,7 +22,7 @@
     height: 350px;
     box-shadow: none;
     align-items: end;
-    outline: 1px solid palevioletred;
+    //outline: 1px solid palevioletred;
   }
 }
 
@@ -38,7 +38,8 @@
   left: 0;
 
   @media (min-width: @tablet-size) {
-    //left: 5px;     нужно реализовать общий сдвиг, чтобы карточки не касались границ окна карусели
+    //left: 15px;  // additional shift
+    align-items: flex-end;
   }
 }
 
@@ -50,10 +51,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 800ms;
 
   @media (min-width: @tablet-size) {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
     margin-bottom: 10px;
+    width: 190px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 8px;
+  }
+}
+
+.list-cards__item-current.list-cards__item {
+  @media (min-width: @tablet-size) {
+    box-shadow: 0 0 20px 2px rgba(88, 170, 89, 0.5);
+    margin-bottom: 10px;
+    width: 210px;
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 330px;
   }
 }
 
@@ -73,7 +90,7 @@
   text-align: center;
   color: var(--main-color-green);
   margin-bottom: 3px;
-  width: 80%;
+  width: 180px;
 }
 
 .list-cards__text {
@@ -82,7 +99,7 @@
   font-size: 13px;
   color: var(--dark-gray);
   font-weight: 500;
-  width: 85%;
+  width: 180px;
 }
 
 //----animation img in items
