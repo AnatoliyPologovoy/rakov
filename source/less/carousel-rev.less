@@ -5,6 +5,10 @@
   grid-template-columns: auto auto;
   grid-template-rows: repeat(3, auto);
   column-gap: 30px;
+
+  @media (min-width: @tablet-size) {
+    width: 640px;
+  }
 }
 
 .carousel-rev__view {
@@ -13,9 +17,13 @@
   width: auto;
   height: 167px;
   box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.10);
-  border-radius: 6.03993px;
+  border-radius: 6px;
   overflow: hidden;
   position: relative;
+
+  @media (min-width: @tablet-size) {
+    height: 177px;
+  }
 }
 
 .carousel-rev__list {
@@ -28,12 +36,22 @@
   //transform: translateX(-290px);
   position: absolute;
   left: 0;
+
+  @media (min-width: @tablet-size) {
+    width: calc(320*4px);
+  }
 }
 
 .carousel-rev__item {
   box-sizing: border-box;
   width: 300px;
   margin-right: 10px;
+
+  @media (min-width: @tablet-size) {
+    width: 310px;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
 }
 
 .markers__item {

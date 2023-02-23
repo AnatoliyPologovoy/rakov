@@ -20,6 +20,10 @@
   font-size: 13px;
   color: @text-review;
   font-weight: 500;
+
+  @media (min-width: @tablet-size) {
+    font-size: 15px;
+  }
 }
 
 .item__author-avatar {
@@ -30,6 +34,11 @@
   float: left;
   margin-right: 15px;
   margin-top: -3px;
+
+  @media (min-width: @tablet-size) {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .item__author-name {
@@ -37,6 +46,10 @@
   font-size: 12px;
   color: var(--dark-gray);
   font-weight: 500;
+
+  @media (min-width: @tablet-size) {
+    font-size: 14px;
+  }
 }
 
 .item__author-company {
@@ -45,5 +58,8 @@
   color: var(--main-color-green);
   font-weight: 100;
   font-style: italic;
-  //text-transform: uppercase;
+
+  @media (min-width: @tablet-size) {
+    font-size: 12px;
+  }
 }

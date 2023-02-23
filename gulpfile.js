@@ -25,7 +25,7 @@ const styles = () => {
     .pipe(csso())
     .pipe(rename("styles.min.css"))
     .pipe(sourcemap.write("."))
-    .pipe(gulp.dest("build/css"))
+    .pipe(gulp.dest("docs/css"))
     .pipe(sync.stream());
 }
 
@@ -48,14 +48,14 @@ const optimizeImages = () => {
       imagemin.optipng({optimizationLevel: 3}),
       imagemin.svgo()
     ]))
-    .pipe(gulp.dest("build/img"))
+    .pipe(gulp.dest("docs/img"))
 }
 
 exports.optimizeImages = optimizeImages;
 
 const copyImages = () => {
   return gulp.src("source/img/*.{png,jpg,svg,webp}")
-    .pipe(gulp.dest("build/img"))
+    .pipe(gulp.dest("docs/img"))
 }
 
 exports.copyImages = copyImages;
@@ -65,7 +65,7 @@ exports.copyImages = copyImages;
 const createWebp = () => {
   return gulp.src("source/img/**/*.{jpg,png}")
     .pipe(webp({quality: 90}))
-    .pipe(gulp.dest("build/img"));
+    .pipe(gulp.dest("docs/img"));
 }
 
 exports.createWebp = createWebp;
@@ -98,7 +98,7 @@ exports.copy = copy;
 // js
 
 const cleanJs = () => {
-  return del("build/js");
+  return del("docs/js");
 }
 
 exports.cleanJs = cleanJs;
@@ -119,7 +119,7 @@ exports.js = js;
 
 const copySprite = (done) => {
   gulp.src("source/img/icons.svg")
-    .pipe(gulp.dest("build/img/"))
+    .pipe(gulp.dest("docs/img/"))
   done();
 }
 

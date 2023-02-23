@@ -10,6 +10,24 @@
 .about-self__text {
   .text-content();
   text-align: justify;
+  //word-break: break-all;
+  word-break: break-word;
+  @media (min-width: @tablet-size) {
+    margin: 20px 0;
+  }
+
+  &::before {
+    @media (min-width: @tablet-size) {
+      content: '';
+      width: 400px;
+      height: 225px;
+      background-image: url("../img/promo1.jpg");
+      background-position: -180px -210px;
+      float: right;
+      margin-left: 25px;
+
+    }
+  }
 }
 
 .about-self__contacts {
@@ -17,6 +35,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  .text-content();
   a {
     color: var(--dark-gray);
     text-decoration: none;
