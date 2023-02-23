@@ -1,9 +1,10 @@
 let widthWindow = document.querySelector('body').offsetWidth;
-
+/*
 window.addEventListener('resize', () => {
   window.location.reload();
   widthWindow = document.querySelector('body').offsetWidth;
 })
+*/
 
 //carousel list cards
 let carouselList = document.querySelector('.carousel__list-cards');
