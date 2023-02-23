@@ -9,7 +9,6 @@
 start/
 build/
 node_modules/
-img/
 npm-debug.*
 source/css/*.css
 source/css/*.map
