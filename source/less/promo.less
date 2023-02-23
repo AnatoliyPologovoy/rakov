@@ -10,9 +10,17 @@
   position: relative;
 }
 
+.promo__main-photo {
+  height: 250px;
+  object-fit: cover;
+  object-position: 0 -130px;
+}
+
 @media (min-width: @tablet-size) {
   .promo__main-photo {
     width: 738px;
+    height: auto;
+    object-position: 0 0;
   }
 
   .promo__slogan {

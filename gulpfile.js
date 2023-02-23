@@ -25,11 +25,28 @@ const styles = () => {
     .pipe(csso())
     .pipe(rename("styles.min.css"))
     .pipe(sourcemap.write("."))
-    .pipe(gulp.dest("docs/css"))
+    .pipe(gulp.dest("build/css"))
     .pipe(sync.stream());
 }
 
 exports.styles = styles;
+
+const stylesToDocs = () => {
+  return gulp.src("source/less/style.less")
+    .pipe(plumber())
+    .pipe(sourcemap.init())
+    .pipe(less())
+    .pipe(postcss([
+      autoprefixer()
+    ]))
+    .pipe(csso())
+    .pipe(rename("styles.min.css"))
+    .pipe(sourcemap.write("."))
+    .pipe(gulp.dest("docs/css"))
+    .pipe(sync.stream());
+}
+
+exports.stylesToDocs = stylesToDocs;
 
 //HTML
 
@@ -39,6 +56,13 @@ const html = () => {
     .pipe(gulp.dest("build"));
 }
 
+const htmlToDocs = () => {
+  return gulp.src("source/*.html")
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest("docs"));
+}
+
+exports.htmlToDocs = htmlToDocs;
 //Images
 
 const optimizeImages = () => {
@@ -48,24 +72,31 @@ const optimizeImages = () => {
       imagemin.optipng({optimizationLevel: 3}),
       imagemin.svgo()
     ]))
-    .pipe(gulp.dest("docs/img"))
+    .pipe(gulp.dest("build/img"))
 }
 
 exports.optimizeImages = optimizeImages;
 
 const copyImages = () => {
   return gulp.src("source/img/*.{png,jpg,svg,webp}")
-    .pipe(gulp.dest("docs/img"))
+    .pipe(gulp.dest("build/img"))
 }
 
 exports.copyImages = copyImages;
+
+const copyImagesToDocs = () => {
+  return gulp.src("source/img/*.{png,jpg,svg,webp}")
+    .pipe(gulp.dest("docs/img"))
+}
+
+exports.copyImagesToDocs = copyImagesToDocs;
 
 // createWebp
 
 const createWebp = () => {
   return gulp.src("source/img/**/*.{jpg,png}")
     .pipe(webp({quality: 90}))
-    .pipe(gulp.dest("docs/img"));
+    .pipe(gulp.dest("build/img"));
 }
 
 exports.createWebp = createWebp;
@@ -77,6 +108,12 @@ const clean = () => {
 }
 
 exports.clean = clean;
+
+const cleanToDocs = () => {
+  return del("docs");
+}
+
+exports.cleanToDocs = cleanToDocs;
 
 // Copy
 
@@ -95,10 +132,25 @@ const copy = (done) => {
 
 exports.copy = copy;
 
+const copyToDocs = (done) => {
+  gulp.src([
+    "source/fonts/*.{woff2,woff}",
+    "source/*.ico",
+    "source/img/**/*.ico",
+    "!source/img/icons/*.svg",
+  ], {
+    base: "source"
+  })
+    .pipe(gulp.dest("docs"))
+  done();
+}
+
+exports.copyToDocs = copyToDocs;
+
 // js
 
 const cleanJs = () => {
-  return del("docs/js");
+  return del("build/js");
 }
 
 exports.cleanJs = cleanJs;
@@ -115,11 +167,30 @@ const js = (done) => {
 
 exports.js = js;
 
+
+const cleanJsToDocs = () => {
+  return del("docs/js");
+}
+
+exports.cleanJsToDocs = cleanJsToDocs;
+
+const jsToDocs = (done) => {
+  gulp.src([
+    "source/js/*.js"
+  ], {
+    base: "source"
+  })
+    .pipe(gulp.dest("docs"))
+  done();
+}
+
+exports.jsToDocs = jsToDocs;
+
 // Copy sprite
 
 const copySprite = (done) => {
   gulp.src("source/img/icons.svg")
-    .pipe(gulp.dest("docs/img/"))
+    .pipe(gulp.dest("build/img/"))
   done();
 }
 
@@ -141,6 +212,20 @@ const server = (done) => {
 
 exports.server = server;
 
+const serverToDocs = (done) => {
+  sync.init({
+    server: {
+      baseDir: 'docs'
+    },
+    cors: true,
+    notify: false,
+    ui: false,
+  });
+  done();
+}
+
+exports.serverToDocs = serverToDocs;
+
 // Watcher
 
 const watcher = () => {
@@ -149,18 +234,26 @@ const watcher = () => {
   gulp.watch("source/js/*.js").on("change", gulp.series(cleanJs, js, sync.reload));
 }
 
+const watcherToDocs = () => {
+  gulp.watch("source/less/**/*.less", gulp.series("stylesToDocs"));
+  gulp.watch("source/*.html").on("change", gulp.series(htmlToDocs, sync.reload));
+  gulp.watch("source/js/*.js").on("change", gulp.series(cleanJsToDocs, jsToDocs, sync.reload));
+}
+
 const build = gulp.series(
-  clean,
-  copy,
-  optimizeImages,
-  copySprite,
+  cleanToDocs,
+  copyToDocs,
+  copyImagesToDocs,
+  jsToDocs,
+  //optimizeImages,
+  //copySprite,
   gulp.parallel(
-  html, styles, createWebp
-  //, scripts, sprites,
+  htmlToDocs, stylesToDocs
+  //, scripts, sprites,createWebp
   ),
   gulp.series(
-    server,
-    watcher
+    serverToDocs,
+    watcherToDocs
   )
 );
 

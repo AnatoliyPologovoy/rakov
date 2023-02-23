@@ -209,7 +209,25 @@ const createCarousel =
       shiftingRight();
       shiftingMarkersLeft();
     })
-    console.log('carousel created')
+    // event touch
+    let touchStartX;
+    let touchEndX;
+    windowCarousel.addEventListener('touchstart', (evt) => {
+      touchStartX = evt.touches[0].clientX;
+    })
+    windowCarousel.addEventListener('touchend', (evt)=> {
+      touchEndX = evt.changedTouches[0].clientX;
+      let touchDirect = touchStartX - touchEndX;
+      console.log(touchDirect);
+      if (touchDirect > 0) {
+        shiftingLeft();
+        shiftingMarkersRight();
+      }
+      else {
+        shiftingRight();
+        shiftingMarkersLeft();
+      }
+    })
   }
 
 
